@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Kenangan Kita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom right, #2c0d3e, #6b0f1a);
+      background-attachment: fixed;
+      color: #e6d2b5;
+      min-height: 100vh;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .gold-gradient {
+      background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .royal-card {
+      background: rgba(43, 11, 63, 0.8);
+      border: 1px solid #c6a86b;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .digital-clock {
+      font-family: 'Montserrat', sans-serif;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid #c6a86b;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(198, 168, 107, 0.3);
+      z-index: 100;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Full Picutre */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80vh;
+      position: relative;
+    }
+
+    .modal-image {
+      max-width: 100%;
+      max-height: 70vh;
+      border: 3px solid #c6a86b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-button {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .heart {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+  background-size: cover;
+  animation: pop 0.8s ease-out forwards;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+}
+
+  </style>
+</head>
+<body class="relative min-h-screen">
+  <div class="digital-clock" id="clock">00:00:00</div>
+
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <header class="text-center mb-8">
+      <h1 class="title text-3xl md:text-4xl lg:text-5xl mb-4 gold-gradient">Gallery Kenangan Kita</h1>
+      <p class="text-lg opacity-80 mb-6">Setiap foto menyimpan cerita indah yang tak terlupakan</p>
+      <a href="index.html" class="inline-block px-6 py-3 rounded-full bg-purple-900 text-white hover:bg-purple-800 transition border border-yellow-300">
+        Kembali ke Halaman Utama
+      </a>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Gallery Item -->
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.59.42_3821907a.jpg"
+               alt="Kenangan kita"
+               class="w-full h-full object-contain" />
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Momen Pertama Kita Photobooth</h3>
+          <p class="opacity-80 text-sm">Ketika dunia terasa sempurna saat bersama</p>
+        </div>
+      </div>
+
+      <!-- Tambahan Gallery Items Placeholder -->
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.53.54_19581740.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Hari di mana first time jogging at Univ</h3>
+          <p class="opacity-80 text-sm">Moment nya seruuu, HAHAHA</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.53.54_a137d561.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Kamu foto di sini fomo kaya orang2</h3>
+          <p class="opacity-80 text-sm">Lucuukkk, walau tidak keliatan muka kita</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.53.53_dd708dd5.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Nyobain Photobooth di atas</h3>
+          <p class="opacity-80 text-sm">Senyummu lebih indah dari segala bunga yang meka -kacauuuuu</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.59.42_dc2b12c4.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Nonton Bioskop nichhhhhh</h3>
+          <p class="opacity-80 text-sm">Aseli filmnya seru, apa lagi bareng kamu -eakk</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.59.43_e01a1cd6.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Keren Photobooth di BLOK-M</h3>
+          <p class="opacity-80 text-sm">Frist time ke BLOK=M, SUKAAAAAAAAAAAK</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.59.43_f0bc6b5b.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Foto mau balek dari mainnn gusy</h3>
+          <p class="opacity-80 text-sm">Emang cantik sih orangnya, mau pake masker apa ngga sama aja</p>
+        </div>
+      </div>
+
+      <div class="royal-card rounded-lg overflow-hidden">
+        <div class="aspect-[9/16] bg-black">
+          <img src="gallery/WhatsApp Image 2025-04-03 at 10.59.45_7ca5f0c5.jpg" alt="Kenangan" class="w-full h-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="title text-lg mb-2">Study date ceritanya guys</h3>
+          <p class="opacity-80 text-sm">Geloooooooooo gelooooooooooooooooooooooo, cakep juga</p>
+        </div>
+      </div>
+      <!-- More if needed... -->
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img class="modal-image" id="modalImage" src="" alt="Gallery image full view">
+    </div>
+  </div>
+
+  <script>
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Modal viewer
+    const items = document.querySelectorAll('.royal-card');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-button');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+     
+    // Efek love saat klik gambar
+items.forEach(item => {
+  const img = item.querySelector('img');
+  img.addEventListener('click', function (e) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = `${e.offsetX}px`;
+    heart.style.top = `${e.offsetY}px`;
+    this.parentNode.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 800); // Hapus setelah animasi selesai
+  });
+});
+
+        
+  </script>
+</body>
+</html>
